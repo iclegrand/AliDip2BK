@@ -1,0 +1,17 @@
+#the most likely Data Provides we need
+dip/acc/LHC/RunControl/RunConfiguration
+dip/acc/LHC/RunControl/BeamMode
+dip/acc/LHC/Beam/BetaStar/Bstar2
+dip/acc/LHC/Beam/Energy
+dip/ALICE/MCS/Dipole/Current
+dip/ALICE/MCS/Solenoid/Current
+#
+#dip/acc/LHC/Beam/Intensity/Beam2
+#dip/acc/LHC/Beam/Intensity/Beam1
+#
+#
+#dip/acc/LHC/Beam/BetaStarLeveling
+#dip/acc/LHC/RunControl/MachineMode
+##dip/acc/LHC/RunControl/CirculatingBunchConfig/Beam2
+#dip/acc/LHC/RunControl/InjectionBunchConfig/Beam1
+#dip/acc/LHC/RunControl/Page1
