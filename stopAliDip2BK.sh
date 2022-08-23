@@ -1,6 +1,5 @@
 SERVICE_NAME=AliDip2BK
-PATH_TO_ALI=/home/cil/TEST_GIT/AliDip2BK/
-ALIRUN=$PATH_TO_ALI/runAliDip2BK.sh
+PATH_TO_ALI=`pwd`
 PID_PATH_NAME=$PATH_TO_ALI/AliDip2BK.pid
        if [ -f $PID_PATH_NAME ]; then
             PID=$(cat $PID_PATH_NAME);
@@ -11,4 +10,3 @@ PID_PATH_NAME=$PATH_TO_ALI/AliDip2BK.pid
         else
             echo "$SERVICE_NAME is not running ..."
         fi
-

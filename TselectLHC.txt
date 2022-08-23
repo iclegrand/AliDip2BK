@@ -8,6 +8,7 @@ dip/ALICE/MCS/Dipole/Current
 dip/ALICE/MCS/Solenoid/Current
 dip/ALICE/MCS/Dipole/Polarity
 dip/ALICE/MCS/Solenoid/Polarity
+dip/acc/LHC/RunControl/SafeBeam
 #
 #
 # we may need these Data Providers
