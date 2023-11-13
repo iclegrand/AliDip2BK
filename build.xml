@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project Tdip with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="./"/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+    <property name="lib.dir"     value="./lib"/>
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="compile">
+        <javac includeantruntime="false"  srcdir="${dir.workspace}/src" destdir="${dir.workspace}/bin" >
+        <classpath refid="classpath" />
+        </javac>
+    </target>
+    <target name="create_run_jar" depends="compile">
+        <jar destfile="${dir.jarfile}/AliDip2BK.jar">
+            <manifest>
+                <attribute name="Main-Class" value="alice.dip.Dip2BK"/>
+            </manifest>
+            <fileset dir="${dir.workspace}/bin"/>
+        </jar>
+    </target>
+</project>

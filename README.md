@@ -15,10 +15,9 @@ The run configuration is defined in the AliDip2BK.properties file.
 
 To run the program :
 
-sh AliDip2BK.sh 
+sh runAliDip2BK.sh 
 
-to Stop the program use CtrlC or kill PID command 
-The program will enter into the shutdown mode and it will 
+When the the program is stopped, it  enters into the shutdown mode and it will 
 unsubscribe  to the DIP data providers will wait to process the DipData queue 
-and it will close the DB connection 
+and saves the state of the fills and runs. 
 
