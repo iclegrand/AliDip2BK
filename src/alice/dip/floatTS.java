@@ -11,6 +11,10 @@ import java.io.Serializable;
 
 public class floatTS implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public long time;
 	public float value;
 	

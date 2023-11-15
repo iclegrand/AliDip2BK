@@ -8,32 +8,24 @@
  */
 package alice.dip;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.Date;
 
 
 public class BKwriter {
 
 	
-    private static String path;
+    //private static String path;
     HttpClient httpClient; 
     
 		 
  
 
 	public BKwriter() {
-		path = getClass().getClassLoader().getResource(".").getPath();
+		//path = getClass().getClassLoader().getResource(".").getPath();
 
 		httpClient = HttpClient.newBuilder()
 		            .version(HttpClient.Version.HTTP_2)
@@ -112,23 +104,22 @@ public class BKwriter {
 			if ( response.statusCode() == 200) {
 				String prob= "\"fillNumber\":"+lhc.fillNo;
 				String ras= response.body() ;
-			//	AliDip2BK.log(1,"BKwriter.TestFillNo"," Code ="+ response.statusCode() + " Mesage="+response.body());
+		
 			
 				if ( ras.contains(prob)) {
-					//AliDip2BK.log(1,"BKwriter.TestFillNo"," FillNo="+ lhc.fillNo + " Is in the BK");
+					
 					return true;
 				} else {
-					//AliDip2BK.log(1,"BKwriter.TestFillNo"," FillNo="+ lhc.fillNo + " Is NOT in the BK");
+					
 					return false;
 				}
 				
 			} else {
-				// AliDip2BK.log(3,"BKwriter.TestFillNo"," Reguest error ="+ response.statusCode() + " Mesage="+response.body());
-				//AliDip2BK.log(1,"BKwriter.TestFillNo"," FillNo="+ lhc.fillNo + " Is NOT in the BK");
+			
 				return false;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 			return false;
 		
@@ -167,7 +158,7 @@ public class BKwriter {
 				return false;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		
@@ -302,7 +293,7 @@ public class BKwriter {
 			    }
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				AliDip2BK.log(4,"BKwriter.UpdateRun","ERROR Update for RUN="+ runObj.RunNo +  "\n Exception="+e);
 				e.printStackTrace();
 			}
@@ -394,7 +385,7 @@ public class BKwriter {
 			    }
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				AliDip2BK.log(4,"BKwriter.UpdateFILL","ERROR Update for FILL="+ cfill.fillNo +  "\n Exception="+e);
 				e.printStackTrace();
 			}

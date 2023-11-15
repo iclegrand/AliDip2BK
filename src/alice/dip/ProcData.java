@@ -26,14 +26,13 @@ import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-import cern.dip.BadParameter;
+
 import cern.dip.DipData;
 import cern.dip.DipTimestamp;
-import cern.dip.TypeMismatch;
 
 
 public class ProcData implements Runnable{
@@ -292,8 +291,8 @@ public class ProcData implements Runnable{
 			
 			try {
 				boolean  v = mes.data.extractBoolean();
-				DipTimestamp dptime =mes.data.extractDipTime();
-				long time =dptime.getAsMillis(); 
+				//DipTimestamp dptime =mes.data.extractDipTime();
+				//long time =dptime.getAsMillis(); 
 				
 				if ( v) {
 				   currentAlice.L3_polarity ="Negative";
@@ -311,8 +310,8 @@ public class ProcData implements Runnable{
 			
 			try {
 				boolean  v = mes.data.extractBoolean();
-				DipTimestamp dptime =mes.data.extractDipTime();
-				long time =dptime.getAsMillis(); 
+				//DipTimestamp dptime =mes.data.extractDipTime();
+				//long time =dptime.getAsMillis(); 
 				if ( v)
 				   currentAlice.Dipole_polarity ="Negative";
 				  
@@ -359,7 +358,7 @@ public class ProcData implements Runnable{
 			
 			boolean isB1 = BigInteger.valueOf(val).testBit(0);
 			boolean isB2 = BigInteger.valueOf(val).testBit(4);
-			boolean isSB = BigInteger.valueOf(val).testBit(2);
+			//boolean isSB = BigInteger.valueOf(val).testBit(2);
 			
 		
 			if (isB1 && isB2 ) {

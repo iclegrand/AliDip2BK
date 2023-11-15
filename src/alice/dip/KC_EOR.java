@@ -13,17 +13,14 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
-import com.google.protobuf.Descriptors.FieldDescriptor;
-import com.google.protobuf.DynamicMessage;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.google.protobuf.Value;
 
-import alice.dip.AlicePB.EnvInfo;
+
 import alice.dip.AlicePB.NewStateNotification;
 
 import java.time.Duration;  
 import java.util.Arrays;  
-import java.util.Collections;  
+
 import java.util.Properties;  
   
 public class KC_EOR  implements Runnable {  

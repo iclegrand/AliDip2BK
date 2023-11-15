@@ -28,7 +28,7 @@ public class AliDip2BK implements Runnable{
 	
 	
 	
-	//public static String[] endFillCases= {"NO BEAM", "RAMP DOWN", "ABORT", "BEAM DUMP" } ;
+
 	
 	public static String[] endFillCases= {"CUCU" } ;
 	
@@ -392,6 +392,7 @@ public class AliDip2BK implements Runnable{
 	}
 	public static void main(String[] args) {
 	  
+		@SuppressWarnings("unused")
 		AliDip2BK service = new AliDip2BK() ;
 
 		

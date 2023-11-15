@@ -12,16 +12,13 @@ package alice.dip;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
-import java.util.StringTokenizer;
 
 import cern.dip.*;
 //import cern.dip.dim.Dip;
@@ -164,7 +161,7 @@ public class DipClient implements Runnable{
 @Override
 public void handleException(DipSubscription arg0, Exception arg1) {
 	 AliDip2BK.log(4, "DipClient.GeneralDataListener.Exception ", "Exception= "+arg0 + " arg1="+arg1);
-	// TODO Auto-generated method stub
+	
 	
 }
  }
@@ -183,7 +180,7 @@ public void handleException(DipSubscription arg0, Exception arg1) {
 			}
 			}
 		} catch (DipException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		 

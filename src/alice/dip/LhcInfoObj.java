@@ -12,6 +12,11 @@ import java.util.Date;
 
 public class LhcInfoObj implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	static String stableBeamName="STABLE BEAMS";
 	
 	public int  fillNo;
@@ -152,10 +157,15 @@ public class LhcInfoObj implements Serializable{
 	public LhcInfoObj clone() {
 		LhcInfoObj n = new LhcInfoObj( createdTime, fillNo, Beam1ParticleType, Beam2ParticleType,LHCFillingSchemeName,IP2_NO_COLLISIONS, NO_BUNCHES) ;
 			
-		ArrayList<strTS> bmh	= (ArrayList<strTS>) beamModeHist.clone();
+		@SuppressWarnings("unchecked")
+		ArrayList<strTS> bmh	=  (ArrayList<strTS>) beamModeHist.clone();	
+		@SuppressWarnings("unchecked")
 		ArrayList<strTS> fsh	= (ArrayList<strTS>) FillingSchemeHist.clone();
+		@SuppressWarnings("unchecked")
 		ArrayList<floatTS> eh = (ArrayList <floatTS>) beamEnergyHist.clone();
+		@SuppressWarnings("unchecked")
 		ArrayList<floatTS> bsh = (ArrayList <floatTS>) LHCBetaStarHist.clone();
+		@SuppressWarnings("unchecked")
 		ArrayList<strTS> afsh	= (ArrayList<strTS>) ActiveFillingSchemeHist.clone();
 		
 		n.beamModeHist = bmh;
@@ -231,7 +241,7 @@ public class LhcInfoObj implements Serializable{
 	
 	public void addNewFS ( long time, String fs, boolean isInPIB) {
 		
-		strTS ts1 = FillingSchemeHist.get(FillingSchemeHist.size()-1);
+		//strTS ts1 = FillingSchemeHist.get(FillingSchemeHist.size()-1);
 		
 		//String lfs = ts1.value ;
 		//if ( fs.contentEquals(lfs)) {
