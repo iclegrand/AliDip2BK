@@ -1,22 +1,22 @@
 /*************
-* cil 
-**************/
+ * cil
+ **************/
 
 /*
- *  Simulates a set of DIP events for testing ONLY 
- *  
+ *  Simulates a set of DIP events for testing ONLY
+ *
  */
 package alice.dip;
 
 import java.util.Date;
 
-public class SimDipEventsFill implements Runnable{
+public class SimDipEventsFill implements Runnable {
 
-	ProcData myProcData;
-	
+    ProcData myProcData;
+
 //	String [] BeamModeList = {"NOMODE","SETUP","INJECTION PROBE BEAM","INJECTION SETUP BEAM","INJECTION PHYSICS BEAM","PREPARE RAMP","RAMP","FLAT TOP","SQUEEZE","ADJUST","STABLE BEAMS","UNSTABLE BEAMS","BEAM DUMP","RAMP DOWN","RECOVERY","INJECT AND DUMP","CIRCULATE AND DUMP","ABORT","CYCLING","WARNING BEAM DUMP","NO BEAM" };
 
-	String [] BeamModeList = {"SETUP","STABLE BEAMS" , "ADJUST"};
+    String[] BeamModeList = {"SETUP", "STABLE BEAMS", "ADJUST"};
 /*	
     BMode[0]="NOMODE";
     BMode[1]="SETUP";
@@ -40,62 +40,61 @@ public class SimDipEventsFill implements Runnable{
     BMode[19]="WARNING BEAM DUMP";
     BMode[20]="NO BEAM";
 */
-	
-	
-	
-	int NT =10;
-	int NM = 10;
-	
-	
-	public SimDipEventsFill ( ProcData proc) {
-		myProcData = proc;
-		
-		Thread t = new Thread (this);
-		t.start();
-	}
-	
-	
-	public void run() {
-		
-		  int RN=1200;
-		  
-		  System.out.println ( " START SIM FILL");
-		  
-		  
-		  for (int i=0; i<10 ;i++ ) { 
-			  
-			 try { 
-			 
-			    Thread.sleep((int) (1000));
-		      
-			
-		        myProcData.newFillNo( (new Date()).getTime(), ""+RN,"p","p","Cucu","10","5");
-		        RN=RN+1;
-		        
-		        Thread.sleep((int) (60*1000));
-		      
-		        
-		        for ( int j=1; j<5 ;j ++) { 
-		            myProcData.newBeamMode( (new Date()).getTime(), BeamModeList[1]);
-		        
-		            Thread.sleep((int) (30*1000));
-		        
-		            myProcData.newBeamMode( (new Date()).getTime(), BeamModeList[0]);
-		            Thread.sleep((int) (30*1000));
-		        }
-		        
-                Thread.sleep((int) (20*1000));
-		        
-		        myProcData.newBeamMode( (new Date()).getTime(), "NO BEAM");
-		        
-		        
-		        Thread.sleep((int) (60*1000));
-		         
-		       } catch(InterruptedException ex) {
-		          Thread.currentThread().interrupt();
-		       }
-		  }
-	}
+
+
+    int NT = 10;
+    int NM = 10;
+
+
+    public SimDipEventsFill(ProcData proc) {
+        myProcData = proc;
+
+        Thread t = new Thread(this);
+        t.start();
+    }
+
+
+    public void run() {
+
+        int RN = 1200;
+
+        System.out.println(" START SIM FILL");
+
+
+        for (int i = 0; i < 10; i++) {
+
+            try {
+
+                Thread.sleep(1000);
+
+
+                myProcData.newFillNo((new Date()).getTime(), "" + RN, "p", "p", "Cucu", "10", "5");
+                RN = RN + 1;
+
+                Thread.sleep(60 * 1000);
+
+
+                for (int j = 1; j < 5; j++) {
+                    myProcData.newBeamMode((new Date()).getTime(), BeamModeList[1]);
+
+                    Thread.sleep(30 * 1000);
+
+                    myProcData.newBeamMode((new Date()).getTime(), BeamModeList[0]);
+                    Thread.sleep(30 * 1000);
+                }
+
+                Thread.sleep(20 * 1000);
+
+                myProcData.newBeamMode((new Date()).getTime(), "NO BEAM");
+
+
+                Thread.sleep(60 * 1000);
+
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
 }
 
 
